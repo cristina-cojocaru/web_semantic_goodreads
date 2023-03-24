@@ -10,7 +10,7 @@ class GoodreadsScraper(scrapy.Spider):
         self.start_urls = ['https://www.goodreads.com/genres/list']
         self.home_page = 'https://www.goodreads.com/'
 
-    def start_requests(self): 
+    def start_requests(self):
         print('ba')
         print(f'here with url {self.start_urls[0]}')
         for url in self.start_urls:
