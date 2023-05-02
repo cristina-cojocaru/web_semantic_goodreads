@@ -13,17 +13,16 @@ def convert_jsonld_to_rdf(input_file, output_file):
         data = json.loads(jsonld)
         g = Graph().parse(data=json.dumps(data), format='json-ld')
         for s, p, o in g:
+            print(s)
             graph.add((s, p, o))
 
     print('graph created')
 
     with open(output_file, 'wb') as f:
-        f.write(graph.serialize(format='turtle').encode('utf-8'))
-
-    print('wrote in file the graph')
+        f.write(graph.serialize(format='turtle'))
 
 
-convert_jsonld_to_rdf('goodreads_ld_smaller.json', 'goodreads-smaller.ttl')
+convert_jsonld_to_rdf('goodreads_ld_new.jsonld', 'goodreads_rdf_new.ttl')
 
 
 
